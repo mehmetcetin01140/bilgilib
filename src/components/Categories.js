@@ -7,6 +7,8 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import {Container,Card} from "react-bootstrap"
 import ReactPaginate from "react-paginate"
+import previous from "../svg/previous.svg"
+import next from "../svg/next.svg"
  function Categories(props) {
      const [categoryStream,setCategoryStream] = useState([])
      const [categoryTitle,setCategoryTitle] = useState("")
@@ -14,23 +16,24 @@ import ReactPaginate from "react-paginate"
      const [nameHolder,setNameHolder] = useState("")
      const [colorHolder,setColorHolder] = useState("")
      const [currentPage, setCurrentPage] = useState(0)
-     const history = useNavigate();
+     const navigate= useNavigate();
      const location=useLocation()
      const locationHolder=location.pathname
-     const PER_PAGE = 10;
+     const PER_PAGE = 5;
+     const pageCount = Math.ceil(categoryStream.length / PER_PAGE);
      const offset = currentPage * PER_PAGE;
      const currentPageData = categoryStream
          .slice(offset, offset + PER_PAGE)
          .map(category => (
           <div>
           { category ?
-      <Link to={`/deneme/${category.routepath}`} style={{ textDecoration: 'none' }}>
+      <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
  <Card className="streamingCards text-center border-0 ">
      <div className="d-flex ">
  <Card.Img src={category.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
 <Card.Title className="d-flex align-items-center ms-1 cardTitle">{category.Title}</Card.Title>
      </div>
-<Card.Footer className="text-muted cardFooter"><i class="fa-solid fa-calendar-days me-2"></i>{category.Datelog}</Card.Footer>
+<Card.Footer className="text-muted cardFooter"><i class="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
 </Card>   
           </Link>
           : <div className='d-flex justify-content-center'><StreamSkeleton/></div>
@@ -51,16 +54,29 @@ import ReactPaginate from "react-paginate"
             .then(data=>setCategoryStream(data))
             console.log(getLocation);
           },[locationHolder])
-          const pageCount = Math.ceil(categoryStream.length / PER_PAGE);
-          function handlePageClick({ selected: selectedPage }) {
-            setCurrentPage(selectedPage);
-            
+          // ----------------------
+          function handlePageClick({ selected: countId}) {
+            let holder = locationHolder.replace("/","").replace("/","").replace("kategoriler","").split('/')[0].replace(`${categoryTitle}`,"")+countId;
+            setCurrentPage(countId);
+            navigate(`/kategoriler/${categoryTitle}${countId===0?"":"/"}${countId===0 ? countId="":countId+1}`)
           }
-           const navigator = ({ selected: selectedPage }) =>{
-             let route = `${locationHolder}=${selectedPage}`
-             history(route)
-         
-           }
+          useEffect(() => {
+            let idChecker = Number(locationHolder.replace("/","").replace("/","").replace("kategoriler","").replace(`${categoryTitle}`,"").replace("/",""))
+              setCurrentPage(idChecker>0 ? idChecker-1 : idChecker)
+       
+            }, [locationHolder,categoryTitle]);
+            
+            const hrefCreator = (href) =>{
+              return href===1 ? href=`/kategoriler/${categoryTitle}/` : `/kategoriler/${categoryTitle}/${href}`
+            }
+           
+      const forcePage = () =>{
+      let idChecker = Number(locationHolder.replace("/","").replace("/","").replace("kategoriler","").replace(`${categoryTitle}`,"").replace("/",""))
+      let check = idChecker>0 ? idChecker-1 : idChecker
+      return check
+
+      }
+
       useEffect(()=>{
         switch (categoryTitle) {
           case "bilim":
@@ -113,26 +129,32 @@ import ReactPaginate from "react-paginate"
         }
       
     },[categoryTitle])
-
+   
      return (
          <Container>
            <div className='categoryTitle mb-5 d-flex'>
              <h1>{nameHolder}</h1><i class={iconHolder} style={{color:colorHolder}}></i>
            </div>
       {currentPageData}
-              <ReactPaginate
-        previousLabel={"← Previous"}
-        nextLabel={"Next →"}
+
+      <ReactPaginate
+        previousLabel={<div className='previousSvg'><img src={previous} height="30"/></div>}
+        nextLabel={<div className='nextSvg'><img src={next} height="30"/></div>}
         pageCount={pageCount}
+        pageClassName={"pages row mx-1"}
         onPageChange={handlePageClick}
-        containerClassName={"pagination"}
-        previousLinkClassName={"pagination__link"}
-        nextLinkClassName={"pagination__link"}
+        containerClassName={"pagination container d-flex justify-content-center mt-3"}
+        previousLinkClassName={"pagination__linkPrevious"}
+        nextLinkClassName={"pagination__linkNext"}
         disabledClassName={"pagination__link--disabled"}
         activeClassName={"pagination__link--active"}
-        onClick={navigator}
-        
-      />
+        hrefAllControls={true}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={1}
+        hrefBuilder={hrefCreator}
+        forcePage={forcePage()!==currentPage?"":forcePage()}/>
+      
+
    
   </Container>
    

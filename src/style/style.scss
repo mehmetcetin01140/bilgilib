@@ -36,28 +36,43 @@
 
 
 .latestContainer{
+    .card-img{
+        height: 300px !important;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.6;
+        max-width: 100%;
+        max-height: 100%;
+    }
     @media screen and (min-width:768px) {
-        img{
-            height: 300px;
-        }
+       
         .entriesCardLayout{
             img{
                 height: 140px !important;
+
             }
             &:last-child{
                 margin-top: 19.5px;
             }
         }
+
 }
 }
 .streamingTitle{
+    width: 100%;
     display: flex;
     justify-content: center;
     margin-top: 15px;
+    position: relative;
     .connectionIcon{
         line-height: 30px;
         margin-left: 6px;
     }
+    button{
+        position: absolute;
+        right:0
+    }
+    
 }
 .streamingCards{
     margin-top: 15px;
@@ -194,6 +209,7 @@
 
 .infiniteScroll{
     overflow-y: hidden !important;
+    
 }
 
 .card-container {
@@ -391,4 +407,99 @@
   .search > div > input:not(:placeholder-shown) {
     width: 250px;
   }
-  
+  .pagination{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      .previousSvg{
+          display: inline;
+          line-height: 30px;
+          position: absolute;
+          left: 0;
+          margin-left:35%;
+       
+          
+      }
+      .nextSvg{
+          display: inline;
+          line-height: 30px;
+          position: absolute;
+          right:0;
+          margin-right:35%;
+         
+      }
+      @media screen and (max-width:1200px) {
+          .nextSvg{
+              margin-right: 30%;
+          }
+          .previousSvg{
+              margin-left: 30%;
+          }
+      }
+      @media screen and (max-width:990px) {
+        .nextSvg{
+            margin-right: 20%;
+        }
+        .previousSvg{
+            margin-left: 20%;
+        }
+    }
+      @media screen and (max-width:500px) {
+        .nextSvg{
+            margin-right: 15%;
+        }
+        .previousSvg{
+            margin-left: 15%;
+        }
+    }
+    @media screen and (max-width:448px) {
+        .nextSvg{
+            margin-right: 5%;
+        }
+        .previousSvg{
+            margin-left: 5%;
+        }
+    }
+    @media screen and (max-width:374px) {
+        li{
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+        .nextSvg{
+        
+            right: 0;
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+        .previousSvg{
+            left: 0 ; 
+           
+            margin-left: 0px !important;
+            margin-right: 0px !important;
+        }
+ 
+    }
+      height: 30px !important;
+      padding: 0px !important;
+      *{
+          text-decoration: none;
+      }
+    .pages{
+        font-weight: 500;
+        a{
+            color: #cb2d3e;
+            text-align: center;
+            line-height: 30px;
+        }
+    }
+}
+.pagination__link--active{
+   a{
+    color:white !important;
+    border:1px ;
+    border-radius: 30px;
+    line-height: 30px;
+    background-color:#cb2d3e; 
+   }
+}
+

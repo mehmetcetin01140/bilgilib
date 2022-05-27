@@ -30,62 +30,62 @@ getData()
   },[])
   return (
    <Container fluid className="mt-3 latestContainer">
+     <h5>Son Eklenenler</h5>
        <Row>
          <Col md={4}>
-          <Link to={`deneme/${firstHolder.routepath}`}>
-          
+          <Link to={`konu/${firstHolder.routepath}`}>  
 <Card className="bg-dark text-white border-0 mb-2" >
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
 <Card.ImgOverlay >
-<Card.Title>{firstHolder.Title}</Card.Title>
+<Card.Title style={{fontSize:"2rem"}}>{firstHolder.Title}</Card.Title>
 <Card.Text>
-{firstHolder.Content}
+{firstHolder.Content ? firstHolder.Content.substr(0,80) : ""}...
 </Card.Text>
-<Card.Text>{firstHolder.Datelog}</Card.Text>
+
 </Card.ImgOverlay>
 </Card>
 </Link>
 </Col>
 
 <Col md={4}>
-  <Link to={`deneme/${secondHolder.routepath}`}>
+  <Link to={`konu/${secondHolder.routepath}`}>
 <Card className="bg-dark text-white border-0 mb-2">
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
 <Card.ImgOverlay>
-<Card.Title>{secondHolder.Title}</Card.Title>
+<Card.Title style={{fontSize:"2rem"}}>{secondHolder.Title}</Card.Title>
 <Card.Text>
-{secondHolder.Content}
+{secondHolder.Content ? secondHolder.Content.substr(0,80) : "..."}...
 </Card.Text>
-<Card.Text>{secondHolder.Datelog}</Card.Text>
+
 </Card.ImgOverlay>
 </Card>
 </Link>
 </Col>
 <Col md={4} >
   <Col md={12} className="entriesCardLayout" >
-  <Link to={`deneme/${thirdHolder.routepath}`}>
+  <Link to={`konu/${thirdHolder.routepath}`}>
   <Card className="bg-dark text-white border-0 mb-2">
-<Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
+<Card.Img src={thirdHolder.Image} alt="Card image"   />
 <Card.ImgOverlay >
-<Card.Title>{thirdHolder.Title}</Card.Title>
+<Card.Title style={{fontSize:"2rem"}}>{thirdHolder.Title}</Card.Title>
 <Card.Text>
-{thirdHolder.Content}
+{thirdHolder.Content ? thirdHolder.Content.substr(0,60) : "..."}...
 </Card.Text>
-<Card.Text>{thirdHolder.Datelog}</Card.Text>
+
 </Card.ImgOverlay>
 </Card>
 </Link>
   </Col>
   <Col md={12} className="entriesCardLayout ">
-  <Link to={`deneme/${fourthHolder.routepath}`}>
+  <Link to={`konu/${fourthHolder.routepath}`}>
   <Card className="bg-dark text-white border-0 mb-2">
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image" />
 <Card.ImgOverlay>
-<Card.Title>{fourthHolder.Title}</Card.Title>
-<Card.Text>
+<Card.Title style={{fontSize:"2rem"}}>{fourthHolder.Title}</Card.Title>
+<Card.Text >
 {fourthHolder.Content}
 </Card.Text>
-<Card.Text>{fourthHolder.Datelog}</Card.Text>
+
 </Card.ImgOverlay>
 </Card>
 </Link>

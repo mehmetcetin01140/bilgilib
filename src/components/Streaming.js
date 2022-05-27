@@ -7,7 +7,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function Streaming() {
    const [items,setItems] = useState([])
    const [counterData,setCounterData] = useState(15)
-   
+   const [dayOrder,setDayOrder] = useState(false)
   const getData = () =>{
     setCounterData(counterData + 5)
     console.log(counterData)
@@ -32,21 +32,21 @@ export default function Streaming() {
           dataLength={items.length}
           next={getData}
           hasMore={true}
-          scrollThreshold={1}
+          scrollThreshold={0.95}
           className="infiniteScroll"
         >
           {items.map((i, index) => (
             <div>
 
-            { i ? <div key={index}>
+            { i ? <div key={index } >
           
-               <Link to={`/deneme/${i.routepath}`} style={{ textDecoration: 'none' }}>
-                <Card className="text-center streamingCards border-0">
+               <Link to={`/konu/${i.routepath}`} style={{ textDecoration: 'none' }}>
+                <Card className="text-center streamingCards border-0 " >
             <div className="d-flex">
             <Card.Img src={i.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
             <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle">{i.Title}</Card.Title>
             </div>
-            <Card.Footer className="text-muted cardFooter "><i class="fa-solid fa-calendar-days me-2"></i>{i.Datelog}</Card.Footer>
+            <Card.Footer className="text-muted cardFooter "><i class="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
             </Card>   
             </Link>
             </div>
@@ -64,6 +64,7 @@ export default function Streaming() {
     <Container>
         <div className='streamingTitle'>
         <h4>Yayın Akışı</h4><i class="fa-solid fa-rss connectionIcon"></i>
+        <button onClick={()=>setDayOrder(dayOrder ? false : true)+console.log(dayOrder)} >sa</button>
         </div>
         <div>
           {cardMap()}

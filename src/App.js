@@ -21,9 +21,9 @@ function App() {
     
         <Route path="/*" element={<LayoutComp/>}>
         <Route path="" element={<HomePage/>}/>
-        <Route path="deneme/:dene" element={<EntryView/>}/>
+        <Route path="konu/:konuadi" element={<EntryView/>}/>
         <Route path="kategoriler/:kategori/" element={<Categories/>}/>
-        <Route path="kategoriler/:kategori/:sa" element={<Categories/>}/>
+        <Route path="kategoriler/:kategori/:kategoriicerik" element={<Categories/>}/>
         </Route>
     
    

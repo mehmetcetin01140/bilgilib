@@ -19,7 +19,7 @@ export default function EntryView() {
      const {speak,cancel} = useSpeechSynthesis();
      
     useEffect(()=>{
-      let getLocation = (locationHolder.replaceAll("/","").replace("deneme",""));
+      let getLocation = (locationHolder.replaceAll("/","").replace("konu",""));
         const formData = new FormData()
         formData.append('currentPage',getLocation)
         formData.append('action','getContent')
@@ -66,7 +66,7 @@ export default function EntryView() {
                 <>
                 <div className="titleArea mt-2 mb-1 ">
                      <h1>{content.Title}</h1>
-                     <span>Yayınlanma tarihi : {content.Datelog}</span><span className="ms-2">Kategori : {content.Category}</span>
+                     <span>Yayınlanma tarihi : {new Date(content.Datelog.slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
                   </div>
                   <div className='zoomArea'>
                   <span>+</span> <i class="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i><span>-</span> <i class="fa-solid fa-magnifying-glass zoomOut" onClick={()=>fontSizeHolder > 1.125 ? setFontSizeHolder(fontSizeHolder-0.1):""}></i>

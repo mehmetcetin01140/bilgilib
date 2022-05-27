@@ -36,12 +36,9 @@ export default function Recommendation(props) {
                 <Card.ImgOverlay >
                 <Card.Body>
                   <Card.Title>{recom.Title}</Card.Title>
-                  <Card.Text>
-                    {recom.Content}
-                  </Card.Text>
                 </Card.Body>
                   </Card.ImgOverlay>
-                <Card.Footer className="text-muted">2 days ago</Card.Footer>
+                <Card.Footer className="text-muted">{new Date(recom.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
               </Card> 
               </Link>
                : <div><RecomSkeleton/></div>
