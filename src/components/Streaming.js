@@ -7,7 +7,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 export default function Streaming() {
    const [items,setItems] = useState([])
    const [counterData,setCounterData] = useState(15)
-   const [dayOrder,setDayOrder] = useState(false)
   const getData = () =>{
     setCounterData(counterData + 5)
     console.log(counterData)
@@ -25,6 +24,7 @@ export default function Streaming() {
   useEffect(()=>{
     getData()
   },[])
+
 
     const cardMap = () =>{
         return(  
@@ -64,7 +64,6 @@ export default function Streaming() {
     <Container>
         <div className='streamingTitle'>
         <h4>Yayın Akışı</h4><i class="fa-solid fa-rss connectionIcon"></i>
-        <button onClick={()=>setDayOrder(dayOrder ? false : true)+console.log(dayOrder)} >sa</button>
         </div>
         <div>
           {cardMap()}

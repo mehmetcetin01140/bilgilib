@@ -503,3 +503,19 @@
    }
 }
 
+.searchResults{
+    span{
+        color:#cb2d3e
+    }
+}
+.aboutUsLogo{
+    height: 300px;
+    width: 300px;
+    background-color: #cb2d3e;
+
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

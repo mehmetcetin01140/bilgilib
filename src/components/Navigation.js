@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchInput from './SearchInput';
 import { connect } from "react-redux";
 import {NavLink} from "react-router-dom"
 import {useSpeechSynthesis} from 'react-speech-kit'
@@ -12,7 +13,7 @@ import sevege from "../default.svg"
   useEffect(() => {
     cancel()
   }, [location]);
-   
+
   return (
     <>
     {['lg', ].map((expand) => (
@@ -33,7 +34,7 @@ import sevege from "../default.svg"
             <Offcanvas.Body>
               <Nav className="justify-content-start flex-grow-1 pe-3">
                 <Nav.Link as={NavLink} to="/">Anasayfa</Nav.Link>
-                <Nav.Link as={NavLink} to="/deneme">Deneme</Nav.Link>
+                <Nav.Link as={NavLink} to="/hakkimizda">Hakkımızda</Nav.Link>
                 <NavDropdown
                   title="Kategoriler"
                   id={`offcanvasNavbarDropdown-expand-${expand}`}
@@ -47,17 +48,9 @@ import sevege from "../default.svg"
                   }
                 </NavDropdown>
               </Nav>
-              <Form className="d-flex">
-            
-   <div class="flexbox me-3">
-  <div class="search">
-    <div>
-      <input type="text" placeholder="Ara..." required/>
-    </div>
-  </div>
-</div>
-                 
-              </Form>
+
+             <SearchInput/>
+             
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

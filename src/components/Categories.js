@@ -1,7 +1,6 @@
 import React from 'react'
 import StreamSkeleton from "./StreamSkeleton"
 import { connect } from "react-redux";
-import { searchGifs} from "../actions";
 import { useLocation , Link ,useNavigate } from "react-router-dom"
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -164,4 +163,4 @@ import next from "../svg/next.svg"
           return {
               Categories: state.Categories,
           };}
-export default connect(mapStateToProps,{searchGifs})(Categories)
+export default connect(mapStateToProps)(Categories)

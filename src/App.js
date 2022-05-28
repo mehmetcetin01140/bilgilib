@@ -11,6 +11,8 @@ import {
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style/style.scss"
+import SearchResults from './components/SearchResults';
+import AboutUs from './components/AboutUs';
 
 function App() {
   
@@ -18,15 +20,14 @@ function App() {
     
     <BrowserRouter >
     <Routes >
-    
         <Route path="/*" element={<LayoutComp/>}>
         <Route path="" element={<HomePage/>}/>
         <Route path="konu/:konuadi" element={<EntryView/>}/>
         <Route path="kategoriler/:kategori/" element={<Categories/>}/>
         <Route path="kategoriler/:kategori/:kategoriicerik" element={<Categories/>}/>
+        <Route path="search" element={<SearchResults/>}/>
+        <Route path="hakkimizda" element={<AboutUs/>}/>
         </Route>
-    
-   
     </Routes>
  </BrowserRouter>
   );

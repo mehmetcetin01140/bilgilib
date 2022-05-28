@@ -1,3 +1,3 @@
-export const searchGifs = (gifs) => {
-    return { type: "GET_GIFS", payload: gifs };
+export const search = (searchdata) => {
+    return { type: "GET_SEARCH_PARAM", payload: searchdata };
   };

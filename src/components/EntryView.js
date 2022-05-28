@@ -88,7 +88,6 @@ export default function EntryView() {
             <Recommendation category={categoryHolder} id={idHolder}/>
            </Col>
           <div className='latestEntries-EntryView mt-5'>
-              <h5 className='ms-4'>En Son Eklenenler</h5>
           <LatestEntries></LatestEntries>
           </div>
        </Row>
