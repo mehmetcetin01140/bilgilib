@@ -93,11 +93,6 @@ import next from "../svg/next.svg"
                 setNameHolder("Yaşam");
                 setColorHolder("rgb(36, 56, 150)")
                 break;
-                case "kriptovarliklar":
-                  setIconHolder("fa-brands fa-bitcoin ms-2");
-                  setNameHolder("Kripto Varlıklar");
-                  setColorHolder("rgb(225, 179, 11)")
-                  break;
                   case "oyun":
                     setIconHolder("fa-solid fa-gamepad ms-2");
                     setNameHolder("Oyun");
@@ -118,11 +113,7 @@ import next from "../svg/next.svg"
                           setNameHolder("Testler");
                           setColorHolder("rgb(36, 150, 137)")
                           break;
-                          case "biyografi":
-                            setIconHolder("fa-solid fa-book-open-reader ms-2");
-                            setNameHolder("Biyografi");
-                            setColorHolder("rgb(95, 24, 24)")
-                            break;
+                          
           default:
             break;
         }

@@ -5,7 +5,6 @@ import {Container,Row,Col,Card,Image} from "react-bootstrap"
 import { useLocation , Link , useNavigate} from "react-router-dom"
 import { useEffect , useState } from 'react';
 import {useSpeechSynthesis} from 'react-speech-kit'
-import {useRef} from 'react';
 export default function EntryView() {
      const [contentData,setContentData] = useState([])
      const [categoryHolder,setCategoryHolder] = useState()
@@ -29,7 +28,7 @@ export default function EntryView() {
        })
        .then(res => res.json())
        .then(data=>[setContentData(data),setCategoryHolder(data[0].Category),setIdHolder(data[0].id)])
-    
+       
       },[locationHolder])
 
       const startSpeech = () =>{
@@ -69,7 +68,8 @@ export default function EntryView() {
                      <span>Yayınlanma tarihi : {new Date(content.Datelog.slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
                   </div>
                   <div className='zoomArea'>
-                  <span>+</span> <i class="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i><span>-</span> <i class="fa-solid fa-magnifying-glass zoomOut" onClick={()=>fontSizeHolder > 1.125 ? setFontSizeHolder(fontSizeHolder-0.1):""}></i>
+                  <span>+</span> <i class="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i>
+                  <span>-</span> <i class="fa-solid fa-magnifying-glass zoomOut" onClick={()=>fontSizeHolder > 1.125 ? setFontSizeHolder(fontSizeHolder-0.1):""}></i>
                  <i class={isActive ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high"} style={{float:"right" ,color: isActive ? "gray" : "green"}} onClick={speechChecker}></i>
                   </div>
                   <div className='contentArea mt-2'>
@@ -85,7 +85,7 @@ export default function EntryView() {
                   ))}
            </Col>
            <Col lg={2} md={12}>
-            <Recommendation category={categoryHolder} id={idHolder}/>
+            <Recommendation category={categoryHolder === undefined ? "" : categoryHolder.replaceAll(" ","").replaceAll("ş","s").replaceAll("ç","c").replaceAll("ı","i").replaceAll("ö","o").replaceAll("ü","u").toLowerCase()} id={idHolder}/>
            </Col>
           <div className='latestEntries-EntryView mt-5'>
           <LatestEntries></LatestEntries>

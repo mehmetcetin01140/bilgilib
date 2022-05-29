@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {Container} from 'react-bootstrap'
-import sevege from "../default.svg"
+import logo from "../default.svg"
 
 export default function AboutUs() {
     const [buttonText,setButtonText] = useState("Adresi Kopyala")
@@ -23,7 +23,7 @@ export default function AboutUs() {
         <br></br>
         <button onClick={copyToClipboard} className="btn btn-dark rounded-3 btn-sm mt-3 text-white">{buttonText}</button>
         <div className="aboutUsLogo w-100 mt-5">
-        <img src={sevege} />
+        <img src={logo} />
             </div>
     </Container>
   )

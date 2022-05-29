@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import StreamSkeleton from './StreamSkeleton'
 import {Container,Card} from "react-bootstrap"
 import {Link} from "react-router-dom"
+import Icons from "./Icons"
 function SearchResults(props) {
     const [searchData,setSearchData] = useState([])
     const dataLength = searchData.length
@@ -36,6 +37,7 @@ function SearchResults(props) {
                    <Link to={`/konu/${i.routepath}`} style={{ textDecoration: 'none' }}>
                     <Card className="text-center streamingCards border-0 " >
                 <div className="d-flex">
+                <div className="categoryIcons">{Icons(i.Category.replaceAll(" ","").replaceAll(" ","").replaceAll("ş","s").replaceAll("ç","c").replaceAll("ı","i").replaceAll("ö","o").replaceAll("ü","u").toLowerCase())}</div>
                 <Card.Img src={i.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
                 <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle">{i.Title}</Card.Title>
                 </div>

@@ -33,7 +33,7 @@ getData()
      <h5>Son Eklenenler</h5>
        <Row>
          <Col md={4}>
-          <Link to={`konu/${firstHolder.routepath}`}>  
+          <Link to={`/konu/${firstHolder.routepath}`}>  
 <Card className="bg-dark text-white border-0 mb-2" >
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
 <Card.ImgOverlay >
@@ -48,7 +48,7 @@ getData()
 </Col>
 
 <Col md={4}>
-  <Link to={`konu/${secondHolder.routepath}`}>
+  <Link to={`/konu/${secondHolder.routepath}`}>
 <Card className="bg-dark text-white border-0 mb-2">
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
 <Card.ImgOverlay>
@@ -63,7 +63,7 @@ getData()
 </Col>
 <Col md={4} >
   <Col md={12} className="entriesCardLayout" >
-  <Link to={`konu/${thirdHolder.routepath}`}>
+  <Link to={`/konu/${thirdHolder.routepath}`}>
   <Card className="bg-dark text-white border-0 mb-2">
 <Card.Img src={thirdHolder.Image} alt="Card image"   />
 <Card.ImgOverlay >
@@ -77,7 +77,7 @@ getData()
 </Link>
   </Col>
   <Col md={12} className="entriesCardLayout ">
-  <Link to={`konu/${fourthHolder.routepath}`}>
+  <Link to={`/konu/${fourthHolder.routepath}`}>
   <Card className="bg-dark text-white border-0 mb-2">
 <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image" />
 <Card.ImgOverlay>

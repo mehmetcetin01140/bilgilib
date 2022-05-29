@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-    Categories: ["Bilim","Teknoloji","Yaşam","Kripto Varlıklar","Oyun","Askeri Teknoloji","Hesaplama Araçları","Testler","Biyografi"],
+    Categories: ["Bilim","Teknoloji","Yaşam","Oyun","Askeri Teknoloji","Hesaplama Araçları","Testler"],
     SearchParam : ""
   };
 

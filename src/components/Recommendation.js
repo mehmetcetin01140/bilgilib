@@ -18,6 +18,7 @@ export default function Recommendation(props) {
          })
          .then(res => res.json())
          .then(data=>setRecomHolder(data))
+         console.log(category);
         },[category,id])
   
   return (

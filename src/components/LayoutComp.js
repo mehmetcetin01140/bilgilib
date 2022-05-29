@@ -13,13 +13,13 @@ import {
 export default function LayoutComp() {
   return (
 
-    <div className="App">
+    <div className="App ">
       <header className="App-header">
-          <nav>
+          <nav >
       <Navigation/>
           </nav>
       </header>
-      <main>
+      <main >
        <Outlet/>
       </main>
       <footer>
