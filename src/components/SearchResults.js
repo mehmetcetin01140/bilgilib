@@ -17,7 +17,7 @@ function SearchResults(props) {
          body: formData
        })
        .then(res => res.json())
-       .then(data=>setSearchData(data)+console.log(data))
+       .then(data=>setSearchData(data))
     
     }
    
@@ -31,7 +31,7 @@ function SearchResults(props) {
             return(  
            <>
               {searchData.map((i, index) => (
-                <div>
+                <div key={index}>
                 { i ? <div key={index } >
               
                    <Link to={`/konu/${i.routepath}`} style={{ textDecoration: 'none' }}>
@@ -41,7 +41,7 @@ function SearchResults(props) {
                 <Card.Img src={i.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
                 <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle">{i.Title}</Card.Title>
                 </div>
-                <Card.Footer className="text-muted cardFooter "><i class="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+                <Card.Footer className="text-muted cardFooter "><i className="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
                 </Card>   
                 </Link>
                 </div>

@@ -38,6 +38,22 @@
     }
    
 }
+
+.sa{
+
+   
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        @media screen and (max-width:770px) {
+            object-fit: cover;
+            object-position: left;
+           
+        }
+     
+    
+}
+
 .offcanvasBody{
     background: #cb2d3e;  
     background: -webkit-linear-gradient(to right, #ef473a, #cb2d3e);  

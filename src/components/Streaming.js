@@ -10,7 +10,6 @@ export default function Streaming() {
    const [counterData,setCounterData] = useState(15)
   const getData = () =>{
     setCounterData(counterData + 5)
-    console.log(counterData)
     const formData = new FormData()
     formData.append('countData',counterData)
     formData.append('action','getStream')
@@ -37,9 +36,9 @@ export default function Streaming() {
           className="infiniteScroll"
         >
           {items.map((i, index) => (
-            <div>
+            <div key={index }>
 
-            { i ? <div key={index } >
+            { i ? <div>
           
                <Link to={`/konu/${i.routepath}`} style={{ textDecoration: 'none' }}>
                 <Card className="text-center streamingCards border-0 " >  
@@ -48,7 +47,7 @@ export default function Streaming() {
             <Card.Img src={i.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
             <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle">{i.Title}</Card.Title>
             </div>
-            <Card.Footer className="text-muted cardFooter "><i class="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+            <Card.Footer className="text-muted cardFooter "><i className="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
             </Card>   
             </Link>
             </div>
@@ -65,7 +64,7 @@ export default function Streaming() {
   return (
     <Container>
         <div className='streamingTitle'>
-        <h4>Yayın Akışı</h4><i class="fa-solid fa-rss connectionIcon"></i>
+        <h4>Yayın Akışı</h4><i className="fa-solid fa-rss connectionIcon"></i>
         </div>
         <div>
           {cardMap()}

@@ -1,22 +1,21 @@
 import React from 'react'
 import {Container,Row,Col,Carousel,CarouselItem,CarouselCaption} from 'react-bootstrap';
+import bilim from "../svg/bilgilibbilimm.png"
 export default function SliderComp() {
   return (
     <Container>
       <Row>
         <Col>
         <Carousel variant="dark" className="test">
-    <Carousel.Item>
+    <Carousel.Item style={{height:500,width:"100%"}} >
       <img
-        className="d-block w-100"
-        src="https://d.sisligazetesi.com.tr/news/11796.jpg"
+        className="d-block w-100 sa"
+        src={bilim}
         alt="First slide"
-        height={500}
+       
       />
-      <Carousel.Caption>
-        <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-      </Carousel.Caption>
+
+  
     </Carousel.Item>
     <Carousel.Item>
       <img

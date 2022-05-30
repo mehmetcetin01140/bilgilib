@@ -23,18 +23,18 @@ import next from "../svg/next.svg"
      const offset = currentPage * PER_PAGE;
      const currentPageData = categoryStream
          .slice(offset, offset + PER_PAGE)
-         .map(category => (
-          <div>
+         .map((category,index) => (
+          <div key={index}>
           { category ?
-      <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
- <Card className="streamingCards text-center border-0 ">
-     <div className="d-flex ">
- <Card.Img src={category.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
-<Card.Title className="d-flex align-items-center ms-1 cardTitle">{category.Title}</Card.Title>
-     </div>
-<Card.Footer className="text-muted cardFooter"><i class="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
-</Card>   
-          </Link>
+              <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
+         <Card className="streamingCards text-center border-0 ">
+             <div className="d-flex ">
+         <Card.Img src={category.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
+        <Card.Title className="d-flex align-items-center ms-1 cardTitle">{category.Title}</Card.Title>
+             </div>
+        <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+        </Card>   
+                  </Link>
           : <div className='d-flex justify-content-center'><StreamSkeleton/></div>
           }
           </div>
@@ -51,11 +51,10 @@ import next from "../svg/next.svg"
             })
             .then(res => res.json())
             .then(data=>setCategoryStream(data))
-            console.log(getLocation);
+          
           },[locationHolder])
           // ----------------------
           function handlePageClick({ selected: countId}) {
-            let holder = locationHolder.replace("/","").replace("/","").replace("kategoriler","").split('/')[0].replace(`${categoryTitle}`,"")+countId;
             setCurrentPage(countId);
             navigate(`/kategoriler/${categoryTitle}${countId===0?"":"/"}${countId===0 ? countId="":countId+1}`)
           }
@@ -123,13 +122,13 @@ import next from "../svg/next.svg"
      return (
          <Container>
            <div className='categoryTitle mb-5 d-flex'>
-             <h1>{nameHolder}</h1><i class={iconHolder} style={{color:colorHolder}}></i>
+             <h1>{nameHolder}</h1><i className={iconHolder} style={{color:colorHolder}}></i>
            </div>
       {currentPageData}
 
       <ReactPaginate
-        previousLabel={<div className='previousSvg'><img src={previous} height="30"/></div>}
-        nextLabel={<div className='nextSvg'><img src={next} height="30"/></div>}
+        previousLabel={<div className='previousSvg'><img src={previous} height="30" alt='previous'/></div>}
+        nextLabel={<div className='nextSvg'><img src={next} height="30" alt='next'/></div>}
         pageCount={pageCount}
         pageClassName={"pages row mx-1"}
         onPageChange={handlePageClick}

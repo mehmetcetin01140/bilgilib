@@ -18,7 +18,6 @@ export default function Recommendation(props) {
          })
          .then(res => res.json())
          .then(data=>setRecomHolder(data))
-         console.log(category);
         },[category,id])
   
   return (
@@ -28,10 +27,10 @@ export default function Recommendation(props) {
                         İlgini Çekebilir..
                     </h5>
                  {
-                     recomHolder.map(recom=>(
-             <div>
+                     recomHolder.map((recom,index)=>(
+             <div key={index}>
                        { recom ? 
-                        <Link to={`/deneme/${recom.routepath}`} style={{ textDecoration: 'none' }}>
+                        <Link to={`/konu/${recom.routepath}`} style={{ textDecoration: 'none' }}>
                     <Card className="text-center entryViewCards" style={{display:recom.id===id?"none":""}}>
                     <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
                 <Card.ImgOverlay >

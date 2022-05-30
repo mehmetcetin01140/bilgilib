@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
 import SearchInput from './SearchInput';
 import { connect } from "react-redux";
-import {NavLink} from "react-router-dom"
+import {NavLink,Link} from "react-router-dom"
 import {useSpeechSynthesis} from 'react-speech-kit'
 import { useLocation} from "react-router-dom"
-import {Container,Navbar,Offcanvas,Nav,NavDropdown,Form,FormControl,Button} from 'react-bootstrap'
+import {Container,Navbar,Offcanvas,Nav,NavDropdown} from 'react-bootstrap'
 import { useEffect } from 'react';
-import sevege from "../default.svg"
+import logo from "../default.svg"
  function Navigation(props) {
   const location=useLocation()
   const {cancel} = useSpeechSynthesis();
@@ -15,9 +15,7 @@ import sevege from "../default.svg"
     handleClose()
   }, [location]);
 
-
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -26,19 +24,18 @@ import sevege from "../default.svg"
     {['lg', ].map((expand) => (
       <Navbar key={expand} bg="light" expand={expand} className="mb-3 shadow-md Navigation ">
         <Container fluid>
-          <Navbar.Brand href="#" className="logo"> <img src={sevege} alt="bilgilib" /></Navbar.Brand>
+          <Navbar.Brand className="logo"><Link to="/"><img src={logo} alt="bilgilib" /></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  onClick={handleShow}/>
           <Navbar.Offcanvas
             id={`offcanvasNavbar-expand-${expand}`}
             aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
             placement="end"
-            show={show}
-            onHide={handleShow}
-            {...props}
+            show={show===true||false ? show : undefined}
+            onHide={handleClose}
           >
             <Offcanvas.Header closeButton className='offcanvasHeader'>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-              <div className='offcanvasLogo'><img src={sevege} alt="bilgilib" /></div>
+              <div className='offcanvasLogo'><img src={logo} alt="bilgilib" /></div>
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body className="offcanvasBody">
@@ -58,9 +55,7 @@ import sevege from "../default.svg"
                   }
                 </NavDropdown>
               </Nav>
-
              <SearchInput/>
-             
             </Offcanvas.Body>
           </Navbar.Offcanvas>
         </Container>

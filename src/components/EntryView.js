@@ -1,8 +1,8 @@
 import React from 'react'
 import LatestEntries from './LatestEntries'
 import Recommendation from './Recommendation'
-import {Container,Row,Col,Card,Image} from "react-bootstrap"
-import { useLocation , Link , useNavigate} from "react-router-dom"
+import {Container,Row,Col,Image} from "react-bootstrap"
+import { useLocation , useNavigate} from "react-router-dom"
 import { useEffect , useState } from 'react';
 import {useSpeechSynthesis} from 'react-speech-kit'
 export default function EntryView() {
@@ -41,7 +41,7 @@ export default function EntryView() {
       const speechChecker = () =>{
         isActive===false ? setIsActive(true) : setIsActive(false)
          isActive===false ? stopSpeech() : startSpeech()
-         console.log(isActive);
+    
       }
    
   useEffect(() => {
@@ -54,23 +54,23 @@ export default function EntryView() {
        <Row>
            <Col md={12} lg={10}>
            <div className='goBack'>
-           <i class="fa-solid fa-arrow-left goBackIcon" onClick={() => navigate(-1)}></i><span>Bir önceki sayfa</span>
+           <i className="fa-solid fa-arrow-left goBackIcon" onClick={() => navigate(-1)}></i><span>Bir önceki sayfa</span>
            <div className='socialMedia'>
-           <a href={`https://twitter.com/intent/tweet?text=${fullHref}`}><i class="fa-brands fa-twitter twitterButton"></i></a>
-           <a href={`https://web.whatsapp.com/send?text=${fullHref}`}><i class="fa-brands fa-whatsapp whatsappButton"></i></a>
-           <a href={`https://www.facebook.com/sharer/sharer.php?u=${fullHref}`}><i class="fa-brands fa-facebook facebookButton"></i></a>
+           <a href={`https://twitter.com/intent/tweet?text=${fullHref}`}><i className="fa-brands fa-twitter twitterButton"></i></a>
+           <a href={`https://web.whatsapp.com/send?text=${fullHref}`}><i className="fa-brands fa-whatsapp whatsappButton"></i></a>
+           <a href={`https://www.facebook.com/sharer/sharer.php?u=${fullHref}`}><i className="fa-brands fa-facebook facebookButton"></i></a>
            </div>
            </div>
-              {contentData.map(content=>(
-                <>
-                <div className="titleArea mt-2 mb-1 ">
+              {contentData.map((content,index)=>(
+            <div key={index}>
+                <div className="titleArea mt-2 mb-1" key={index}>
                      <h1>{content.Title}</h1>
                      <span>Yayınlanma tarihi : {new Date(content.Datelog.slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
                   </div>
                   <div className='zoomArea'>
-                  <span>+</span> <i class="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i>
-                  <span>-</span> <i class="fa-solid fa-magnifying-glass zoomOut" onClick={()=>fontSizeHolder > 1.125 ? setFontSizeHolder(fontSizeHolder-0.1):""}></i>
-                 <i class={isActive ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high"} style={{float:"right" ,color: isActive ? "gray" : "green"}} onClick={speechChecker}></i>
+                  <span>+</span> <i className="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i>
+                  <span>-</span> <i className="fa-solid fa-magnifying-glass zoomOut" onClick={()=>fontSizeHolder > 1.125 ? setFontSizeHolder(fontSizeHolder-0.1):""}></i>
+                 <i className={isActive ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high"} style={{float:"right" ,color: isActive ? "gray" : "green"}} onClick={speechChecker}></i>
                   </div>
                   <div className='contentArea mt-2'>
                  <span style={{fontSize:fontSizeHolder+"em"}}>{content.Content}</span>
@@ -81,7 +81,7 @@ export default function EntryView() {
                 <div className="keywords mt-5">
                     <span>Anahtar Kelimeler : {content.Keywords}</span>
                 </div>
-                </>
+               </div>
                   ))}
            </Col>
            <Col lg={2} md={12}>
