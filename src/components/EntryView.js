@@ -5,6 +5,7 @@ import {Container,Row,Col,Image} from "react-bootstrap"
 import { useLocation , useNavigate} from "react-router-dom"
 import { useEffect , useState } from 'react';
 import {useSpeechSynthesis} from 'react-speech-kit'
+import {Helmet} from "react-helmet";
 export default function EntryView() {
      const [contentData,setContentData] = useState([])
      const [categoryHolder,setCategoryHolder] = useState()
@@ -49,7 +50,7 @@ export default function EntryView() {
   }, []);
 
   return (
-    
+    <>
    <Container className="entryView">
        <Row>
            <Col md={12} lg={10}>
@@ -63,6 +64,10 @@ export default function EntryView() {
            </div>
               {contentData.map((content,index)=>(
             <div key={index}>
+              <Helmet>
+        <title>{`${content.Title}`}</title>
+        <meta name="description" content={`${content.Title}`} />
+        </Helmet>
                 <div className="titleArea mt-2 mb-1" key={index}>
                      <h1>{content.Title}</h1>
                      <span>Yayınlanma tarihi : {new Date(content.Datelog.slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
@@ -92,5 +97,6 @@ export default function EntryView() {
           </div>
        </Row>
    </Container>
+   </>
   )
 }

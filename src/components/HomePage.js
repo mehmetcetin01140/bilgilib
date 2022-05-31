@@ -12,7 +12,7 @@ export default function HomePage() {
         <LatestEntries/>
       </div>
 <div className="streaming">
-<Streaming/>
+      <Streaming/>
 </div>
     </div>
   )

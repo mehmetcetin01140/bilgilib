@@ -1,50 +1,38 @@
 import React from 'react'
-import {Container,Row,Col,Carousel,CarouselItem,CarouselCaption} from 'react-bootstrap';
-import bilim from "../svg/bilgilibbilimm.png"
+import {Carousel} from 'react-bootstrap';
+import {Container} from "react-bootstrap"
+import {Link} from "react-router-dom"
+import Bilim from "../svg/bilgilibbilim.png"
+import Oyun from "../svg/bilgiliboyun.png"
+import Yasam from "../svg/bilgilibyasam.png"
 export default function SliderComp() {
   return (
-    <Container>
-      <Row>
-        <Col>
-        <Carousel variant="dark" className="test">
-    <Carousel.Item style={{height:500,width:"100%"}} >
+    <Container fluid>
+    <Carousel variant="dark" className="carouselItems">
+    <Carousel.Item className="carouselItems" >
+      <Link to="/kategoriler/bilim">
       <img
-        className="d-block w-100 sa"
-        src={bilim}
-        alt="First slide"
-       
+        src={Bilim}
+        alt="Bilgilib Bilim"
+        className='item'
       />
-
-  
+    </Link>
     </Carousel.Item>
-    <Carousel.Item>
+    <Carousel.Item className="carouselItems">
       <img
-        className="d-block w-100"
-        src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee"
-        alt="Second slide"
-        height={500}
+        src={Oyun}
+        alt="Bilgilib Oyun"
+        className='item'
       />
-      <Carousel.Caption>
-        <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </Carousel.Caption>
     </Carousel.Item>
-    <Carousel.Item>
+    <Carousel.Item className="carouselItems">
       <img
-        className="d-block w-100"
-        src="https://iaftm.tmgrup.com.tr/e547c9/1200/627/71/0/877/421?u=https://iftm.tmgrup.com.tr/2022/01/19/eyt-son-dakika-emeklilikte-yasa-takilanlar-icin-iyi-haber-1642578234333.jpg"
-        alt="Third slide"
-        height={500}
+        src={Yasam}
+        alt="Bilgilib Yaşam"
+        className='item'
       />
-      <Carousel.Caption>
-        <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-      </Carousel.Caption>
     </Carousel.Item>
-  </Carousel>
-        </Col>
-      </Row>
-    </Container>
-      
+  </Carousel> 
+  </Container>
   )
 }

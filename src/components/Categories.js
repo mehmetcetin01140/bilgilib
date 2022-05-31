@@ -120,6 +120,7 @@ import next from "../svg/next.svg"
     },[categoryTitle])
    
      return (
+       <>
          <Container>
            <div className='categoryTitle mb-5 d-flex'>
              <h1>{nameHolder}</h1><i className={iconHolder} style={{color:colorHolder}}></i>
@@ -143,10 +144,9 @@ import next from "../svg/next.svg"
         hrefBuilder={hrefCreator}
         forcePage={forcePage()!==currentPage?"":forcePage()}/>
       
-
-   
   </Container>
    
+         </>
          )
         }
         const mapStateToProps = (state) => {

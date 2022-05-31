@@ -22,7 +22,7 @@ import logo from "../default.svg"
   return (
     <>
     {['lg', ].map((expand) => (
-      <Navbar key={expand} bg="light" expand={expand} className="mb-3 shadow-md Navigation ">
+      <Navbar key={expand} bg="light" expand={expand} className="mb-2 shadow-md Navigation ">
         <Container fluid>
           <Navbar.Brand className="logo"><Link to="/"><img src={logo} alt="bilgilib" /></Link></Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  onClick={handleShow}/>
