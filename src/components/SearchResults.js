@@ -38,7 +38,7 @@ function SearchResults(props) {
                     <Card className="text-center streamingCards border-0 " >
                 <div className="d-flex">
                 <div className="categoryIcons">{Icons(i.Category.replaceAll(" ","").replaceAll(" ","").replaceAll("ş","s").replaceAll("ç","c").replaceAll("ı","i").replaceAll("ö","o").replaceAll("ü","u").toLowerCase())}</div>
-                <Card.Img src={i.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
+                <Card.Img src={i.Image} alt="Card image" className="responsiveOpacity" style={{width:"160px",height:"160px"}}  />
                 <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle">{i.Title}</Card.Title>
                 </div>
                 <Card.Footer className="text-muted cardFooter "><i className="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>

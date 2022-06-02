@@ -64,9 +64,18 @@ export default function EntryView() {
            </div>
               {contentData.map((content,index)=>(
             <div key={index}>
-              <Helmet>
+        <Helmet>
         <title>{`${content.Title}`}</title>
         <meta name="description" content={`${content.Title}`} />
+        <meta property="og:title" content={`${content.Title}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={`${content.Image}`} />
+        <meta property="og:site_name" content="Bilgilib"/>
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="@Bilgilib" />
+        <meta name="twitter:title" content={`${content.Title}`} />
+        <meta name="twitter:description" content={`${content.Title}`} />
+        <meta name="twitter:image" content={`${content.Image}`} />
         </Helmet>
                 <div className="titleArea mt-2 mb-1" key={index}>
                      <h1>{content.Title}</h1>

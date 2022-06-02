@@ -17,7 +17,6 @@ import AboutUs from './components/AboutUs';
 function App() {
   
   return (
-    
     <BrowserRouter >
     <Routes >
         <Route path="/*" element={<LayoutComp/>}>

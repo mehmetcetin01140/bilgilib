@@ -8,6 +8,7 @@ import {Container,Card} from "react-bootstrap"
 import ReactPaginate from "react-paginate"
 import previous from "../svg/previous.svg"
 import next from "../svg/next.svg"
+import {Helmet} from "react-helmet";
  function Categories(props) {
      const [categoryStream,setCategoryStream] = useState([])
      const [categoryTitle,setCategoryTitle] = useState("")
@@ -29,7 +30,7 @@ import next from "../svg/next.svg"
               <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
          <Card className="streamingCards text-center border-0 ">
              <div className="d-flex ">
-         <Card.Img src={category.Image} alt="Card image" style={{width:"160px",height:"160px"}}  />
+         <Card.Img src={category.Image} alt="Card image" className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
         <Card.Title className="d-flex align-items-center ms-1 cardTitle">{category.Title}</Card.Title>
              </div>
         <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
@@ -121,6 +122,10 @@ import next from "../svg/next.svg"
    
      return (
        <>
+        <Helmet>
+        <title data-react-helmet={true}>{"Bilgilib Kategoriler"}</title>
+        <meta name="description" content={"Bilgilib Kategoriler"}  data-react-helmet={true}/>
+        </Helmet>
          <Container>
            <div className='categoryTitle mb-5 d-flex'>
              <h1>{nameHolder}</h1><i className={iconHolder} style={{color:colorHolder}}></i>
