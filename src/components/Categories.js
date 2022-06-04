@@ -31,7 +31,7 @@ import {Helmet} from "react-helmet";
          <Card className="streamingCards text-center border-0 ">
              <div className="d-flex ">
          <Card.Img src={category.Image} alt="Card image" className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
-        <Card.Title className="d-flex align-items-center ms-1 cardTitle">{category.Title}</Card.Title>
+        <Card.Title className="d-flex align-items-center ms-1 cardTitle"><span className='categorySpan'>{category.Title}</span></Card.Title>
              </div>
         <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
         </Card>   
@@ -91,7 +91,7 @@ import {Helmet} from "react-helmet";
               case "yasam":
                 setIconHolder("fa-solid fa-earth-americas ms-2");
                 setNameHolder("Yaşam");
-                setColorHolder("rgb(36, 56, 150)")
+                setColorHolder("#005477")
                 break;
                   case "oyun":
                     setIconHolder("fa-solid fa-gamepad ms-2");

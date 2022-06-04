@@ -6,6 +6,7 @@ import { useLocation , useNavigate} from "react-router-dom"
 import { useEffect , useState } from 'react';
 import {useSpeechSynthesis} from 'react-speech-kit'
 import {Helmet} from "react-helmet";
+import parse from 'html-react-parser';
 export default function EntryView() {
      const [contentData,setContentData] = useState([])
      const [categoryHolder,setCategoryHolder] = useState()
@@ -33,7 +34,7 @@ export default function EntryView() {
       },[locationHolder])
 
       const startSpeech = () =>{
-        speak({ text: contentData[0].Content, lang:"tr-TR" })
+        speak({ text: contentData[0].Content+contentData[0].ContentTwo, lang:"tr-TR" })
       
       }
       const stopSpeech = () =>{
@@ -87,13 +88,20 @@ export default function EntryView() {
                  <i className={isActive ? "fa-solid fa-volume-xmark" : "fa-solid fa-volume-high"} style={{float:"right" ,color: isActive ? "gray" : "green"}} onClick={speechChecker}></i>
                   </div>
                   <div className='contentArea mt-2'>
-                 <span style={{fontSize:fontSizeHolder+"em"}}>{content.Content}</span>
-  <div className="mt-3">
-  <Image fluid src={content.Image} className='w-100'/>
+                 <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.Content)}</span>
+  <div className="mt-3 imageContainer">
+  <Image fluid src={content.Image} className='w-100' />
   </div>
                 </div>
+                <h2 className='mt-3'>{content.TitleTwo}</h2>
+             <div className='contentTwo mt-3'>
+             <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.ContentTwo)}</span>
+             </div>
+             <div className="mt-3 imageContainer">
+  <Image fluid src={content.ImageTwo} className='w-100'/>
+  </div>
                 <div className="keywords mt-5">
-                    <span>Anahtar Kelimeler : {content.Keywords}</span>
+                    <span>Anahtar Kelimeler : {content.Keywords} </span>
                 </div>
                </div>
                   ))}

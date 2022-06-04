@@ -31,11 +31,11 @@ export default function Recommendation(props) {
              <div key={index}>
                        { recom ? 
                         <Link to={`/konu/${recom.routepath}`} style={{ textDecoration: 'none' }}>
-                    <Card className="text-center entryViewCards" style={{display:recom.id===id?"none":""}}>
-                    <Card.Img src="https://cdn1.ntv.com.tr/gorsel/eQWCDkMfNUOkhrUYCtBUWw.jpg?width=1200&height=675&mode=crop&scale=both&v=1649150527773&meta=rectanglee" alt="Card image"  />
+                    <Card className="text-center entryViewCards" style={{display:recom.id === id ? "none" : ""}}>
+                    <Card.Img src={recom.Image} alt="Card image" className="recomImage"  />
                 <Card.ImgOverlay >
                 <Card.Body>
-                  <Card.Title>{recom.Title}</Card.Title>
+                  <Card.Title><span className="respTitle">{recom.Title}</span></Card.Title>
                 </Card.Body>
                   </Card.ImgOverlay>
                 <Card.Footer className="text-muted">{new Date(recom.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>

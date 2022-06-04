@@ -31,7 +31,7 @@ export default function LatestEntries() {
        <Container fluid className="mt-3 latestContainer">
          <h5>Son Eklenenler</h5>
            <Row>
-             <Col md={4}>
+             <Col lg={4} md={12}>
               <Link to={`/konu/${firstHolder.routepath}`}>  
     <Card className="bg-dark text-white border-0 mb-2" >
     <Card.Img src={firstHolder.Image} alt="Card image"  />
@@ -42,7 +42,7 @@ export default function LatestEntries() {
     </Link>
     </Col>
       
-    <Col md={4}>
+    <Col lg={4} md={12}>
       <Link to={`/konu/${secondHolder.routepath}`}>
     <Card className="bg-dark text-white border-0 mb-2">
     <Card.Img src={secondHolder.Image} />
@@ -53,25 +53,25 @@ export default function LatestEntries() {
     </Card>
     </Link>
     </Col>
-    <Col md={4} >
-      <Col md={12} className="entriesCardLayout" >
+    <Col lg={4} md={12}>
+      <Col lg={12} md={12} className="entriesCardLayout" >
       <Link to={`/konu/${thirdHolder.routepath}`}>
       <Card className="bg-dark text-white border-0 mb-2">
     <Card.Img src={thirdHolder.Image} alt="Card image"   />
     <Card.ImgOverlay >
-    <Card.Title style={{fontSize:"2rem"}}>{thirdHolder.Title}</Card.Title>
+    <Card.Title style={{fontSize:"2rem"}}><span>{thirdHolder.Title}</span></Card.Title>
   
       
     </Card.ImgOverlay>
     </Card>
     </Link>
       </Col>
-      <Col md={12} className="entriesCardLayout ">
+      <Col lg={12} md={12} className="entriesCardLayout ">
       <Link to={`/konu/${fourthHolder.routepath}`}>
       <Card className="bg-dark text-white border-0 mb-2">
     <Card.Img src={fourthHolder.Image} alt="Card image" />
     <Card.ImgOverlay>
-    <Card.Title style={{fontSize:"2rem"}}>{fourthHolder.Title}</Card.Title>
+    <Card.Title style={{fontSize:"2rem"}}><span>{fourthHolder.Title}</span></Card.Title>
       
     </Card.ImgOverlay>
     </Card>

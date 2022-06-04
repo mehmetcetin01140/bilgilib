@@ -68,7 +68,7 @@
 
   @media screen and (max-width:767px) {
     .responsiveOpacity{
-        opacity: 0.6;
+        opacity: 1;
     }
     
 }
@@ -108,9 +108,9 @@
         max-width: 100%;
         max-height: 100%;
     }
-    @media screen and (min-width:768px) {
-       
+    @media screen and (min-width:992px) {
         .entriesCardLayout{
+            
             img{
                 height: 140px !important;
 
@@ -121,6 +121,21 @@
         }
 
 }
+    @media screen and (max-width:1250px) {
+        .entriesCardLayout{
+            
+            span{
+                font-size: 1.3rem !important;
+            }
+        }
+    }
+    @media screen and (max-width:991px) {
+        .entriesCardLayout{
+            span{
+                font-size: 2rem !important;
+            }
+        }
+    }
 }
 .streamingTitle{
     width: 100%;
@@ -180,7 +195,13 @@
         left: 0;
         right: 0;
         margin-bottom: 41px;
+        color: white !important;
+        span{
+            background-color: rgba(11, 11, 11, 0.087) !important;
+            border-radius: 3px;
+        }
        }
+       
    }
    .cardFooter{
        color:white !important;
@@ -204,6 +225,14 @@
        
     }
 }
+    @media screen and (max-width:768px) {
+        .categorySpan{
+        
+            background-color: rgba(11, 11, 11, 0.087) !important;
+            border-radius: 3px;
+            
+        }
+    }
 .entryView{
     .goBack{
         display: flex;
@@ -254,7 +283,39 @@
         }
     }
 }
-    
+    .recommendationArea{
+        .recomImage{
+            max-width: 100%;
+            max-height: 100%;
+            object-fit:cover;
+            opacity: 0.6;
+        }
+        .respTitle{
+            color: black;
+            font-size: 1.1rem;
+            background-color: rgba(230, 222, 222, 0.168) !important;
+            border-radius: 5px;
+            
+        }
+        .card-body{
+            padding: 0px;
+        }
+        @media screen and (max-width:1400px) {
+            .respTitle{
+                font-size: 1.1rem !important;
+                
+            }
+        }
+        @media screen and (max-width:991px) {
+            .respTitle{
+                font-size: 1.8rem !important;
+            }
+            .card-body{
+                padding: 20px;
+            }
+            
+        }
+    }
     .zoomArea{
      font-size: 20px;
      user-select: none;
@@ -603,4 +664,11 @@
 }
 .aboutUsButton{
     background-color: #cb2d3e !important;
+}
+.imageContainer{
+    img{
+        max-width:100%;
+        max-height: 100%;
+        object-fit: cover;
+    }
 }
