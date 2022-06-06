@@ -48,7 +48,7 @@ export default function EntryView() {
    
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [locationHolder]);
 
   return (
     <>
@@ -90,7 +90,7 @@ export default function EntryView() {
                   <div className='contentArea mt-2'>
                  <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.Content)}</span>
   <div className="mt-3 imageContainer">
-  <Image fluid src={content.Image} className='w-100' />
+  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.Image}`} className='w-100' />
   </div>
                 </div>
                 <h2 className='mt-3'>{content.TitleTwo}</h2>
@@ -98,7 +98,7 @@ export default function EntryView() {
              <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.ContentTwo)}</span>
              </div>
              <div className="mt-3 imageContainer">
-  <Image fluid src={content.ImageTwo} className='w-100'/>
+  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.ImageTwo}`} onError={(event) => event.target.style.display = 'none'} className='w-100'/>
   </div>
                 <div className="keywords mt-5">
                     <span>Anahtar Kelimeler : {content.Keywords} </span>

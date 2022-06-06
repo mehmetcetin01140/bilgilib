@@ -32,13 +32,13 @@ export default function Recommendation(props) {
                        { recom ? 
                         <Link to={`/konu/${recom.routepath}`} style={{ textDecoration: 'none' }}>
                     <Card className="text-center entryViewCards" style={{display:recom.id === id ? "none" : ""}}>
-                    <Card.Img src={recom.Image} alt="Card image" className="recomImage"  />
+                    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${recom.Image}`} alt="Card image" className="recomImage"  />
                 <Card.ImgOverlay >
                 <Card.Body>
                   <Card.Title><span className="respTitle">{recom.Title}</span></Card.Title>
                 </Card.Body>
                   </Card.ImgOverlay>
-                <Card.Footer className="text-muted">{new Date(recom.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+                <Card.Footer className="text-muted recomFooter"><i className="fa-solid fa-calendar-days me-2 "></i><span>{new Date(recom.Datelog.slice(0,11)).toLocaleDateString()}</span></Card.Footer>
               </Card> 
               </Link>
                : <div><RecomSkeleton/></div>

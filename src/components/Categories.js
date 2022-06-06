@@ -30,8 +30,8 @@ import {Helmet} from "react-helmet";
               <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
          <Card className="streamingCards text-center border-0 ">
              <div className="d-flex ">
-         <Card.Img src={category.Image} alt="Card image" className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
-        <Card.Title className="d-flex align-items-center ms-1 cardTitle"><span className='categorySpan'>{category.Title}</span></Card.Title>
+         <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${category.Image}`} alt="Card image" className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
+        <Card.Title className="d-flex align-items-center ms-1 cardTitle"><span className='categorySpan ms-1 titleSize'>{category.Title}</span></Card.Title>
              </div>
         <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
         </Card>   
@@ -102,18 +102,7 @@ import {Helmet} from "react-helmet";
                       setIconHolder("fa-solid fa-jet-fighter ms-2");
                       setNameHolder("Askeri Teknoloji");
                       setColorHolder("rgb(92, 123, 38)")
-                      break;
-                      case "hesaplamaaraclari":
-                        setIconHolder("fa-solid fa-calculator ms-2");
-                        setNameHolder("Hesaplama Araçları");
-                        setColorHolder("rgb(123, 111, 140)")
-                        break;
-                        case "testler":
-                          setIconHolder("fa-solid fa-pen-to-square ms-2");
-                          setNameHolder("Testler");
-                          setColorHolder("rgb(36, 150, 137)")
-                          break;
-                          
+                      break;        
           default:
             break;
         }
