@@ -44,10 +44,10 @@ export default function Streaming() {
                 <Card className="text-center streamingCards border-0 " >  
             <div className="d-flex">
                   <div className="categoryIcons">{Icons(i.Category.replaceAll(" ","").replaceAll(" ","").replaceAll("ş","s").replaceAll("ç","c").replaceAll("ı","i").replaceAll("ö","o").replaceAll("ü","u").toLowerCase())}</div>
-            <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${i.Image}`} alt="Card image" className="responsiveOpacity" style={{width:"160px",height:"160px"}}  />
+            <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${i.Image}`} alt={i.Title} className="responsiveOpacity" style={{width:"160px",height:"160px"}}  />
             <Card.Title  className="d-flex align-items-center text-align-center ms-1 cardTitle"><span className='ms-1 titleSize'>{i.Title}</span></Card.Title>
             </div>
-            <Card.Footer className="text-muted cardFooter "><i className="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+            <Card.Footer className="text-muted cardFooter "><i className="fa-solid fa-calendar-days me-2"></i>{new Date(i.Datelog.replace(/-/g, '/').slice(0,11)).toLocaleDateString()}</Card.Footer>
             </Card>   
             </Link>
             </div>

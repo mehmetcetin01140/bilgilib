@@ -30,10 +30,10 @@ import {Helmet} from "react-helmet";
               <Link to={`/konu/${category.routepath}`} style={{ textDecoration: 'none' }}>
          <Card className="streamingCards text-center border-0 ">
              <div className="d-flex ">
-         <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${category.Image}`} alt="Card image" className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
+         <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${category.Image}`} alt={category.Title} className='responsiveOpacity' style={{width:"160px",height:"160px"}}  />
         <Card.Title className="d-flex align-items-center ms-1 cardTitle"><span className='categorySpan ms-1 titleSize'>{category.Title}</span></Card.Title>
              </div>
-        <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.slice(0,11)).toLocaleDateString()}</Card.Footer>
+        <Card.Footer className="text-muted cardFooter"><i className="fa-solid fa-calendar-days me-2"></i>{new Date(category.Datelog.replace(/-/g, '/').slice(0,11)).toLocaleDateString()}</Card.Footer>
         </Card>   
                   </Link>
           : <div className='d-flex justify-content-center'><StreamSkeleton/></div>

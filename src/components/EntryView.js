@@ -34,7 +34,7 @@ export default function EntryView() {
       },[locationHolder])
 
       const startSpeech = () =>{
-        speak({ text: contentData[0].Content+contentData[0].ContentTwo, lang:"tr-TR" })
+        speak({ text: contentData[0].Content.replaceAll("<strong>","").replaceAll("</strong>","").replaceAll("<br>","").replaceAll("</br>","").replaceAll("<ul>","").replaceAll("</ul>","").replaceAll("<li>","").replaceAll("</li>","")+contentData[0].ContentTwo.replaceAll("<strong>","").replaceAll("</strong>","").replaceAll("<br>","").replaceAll("</br>","").replaceAll("<ul>","").replaceAll("</ul>","").replaceAll("<li>","").replaceAll("</li>",""), lang:"tr-TR" })
       
       }
       const stopSpeech = () =>{
@@ -80,7 +80,7 @@ export default function EntryView() {
         </Helmet>
                 <div className="titleArea mt-2 mb-1" key={index}>
                      <h1>{content.Title}</h1>
-                     <span>Yayınlanma tarihi : {new Date(content.Datelog.slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
+                     <span>Yayınlanma tarihi : {new Date(content.Datelog.replace(/-/g, '/').slice(0,11)).toLocaleDateString()}</span><span className="ms-2">Kategori : {content.Category}</span>
                   </div>
                   <div className='zoomArea'>
                   <span>+</span> <i className="fa-solid fa-magnifying-glass me-2 zoomIn " onClick={()=>fontSizeHolder <= 1.3 ? setFontSizeHolder(fontSizeHolder+0.1):""}></i>
@@ -90,7 +90,7 @@ export default function EntryView() {
                   <div className='contentArea mt-2'>
                  <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.Content)}</span>
   <div className="mt-3 imageContainer">
-  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.Image}`} className='w-100' />
+  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.Image}`} className='w-100' alt={content.Title} />
   </div>
                 </div>
                 <h2 className='mt-3'>{content.TitleTwo}</h2>
@@ -98,7 +98,7 @@ export default function EntryView() {
              <span style={{fontSize:fontSizeHolder+"em"}}>{parse(content.ContentTwo)}</span>
              </div>
              <div className="mt-3 imageContainer">
-  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.ImageTwo}`} onError={(event) => event.target.style.display = 'none'} className='w-100'/>
+  <Image fluid src={`${process.env.REACT_APP_ENDPOINT}/images/${content.ImageTwo}`} onError={(event) => event.target.style.display = 'none'} className='w-100' alt={content.Title}/>
   </div>
                 <div className="keywords mt-5">
                     <span>Anahtar Kelimeler : {content.Keywords} </span>

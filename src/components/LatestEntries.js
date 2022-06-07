@@ -35,7 +35,7 @@ export default function LatestEntries() {
               <Link to={`/konu/${firstHolder.routepath}`}>  
              
     <Card className="bg-dark text-white border-0 mb-2 hoverable" >
-    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${firstHolder.Image}`} alt="Card image" className="deneme" />
+    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${firstHolder.Image}`} alt={firstHolder.Title} />
     <Card.ImgOverlay >
     <Card.Title style={{fontSize:"2rem"}}>{firstHolder.Title}</Card.Title>    
     </Card.ImgOverlay>
@@ -46,7 +46,7 @@ export default function LatestEntries() {
     <Col lg={4} md={12}>
       <Link to={`/konu/${secondHolder.routepath}`}>
     <Card className="bg-dark text-white border-0 mb-2 hoverable">
-    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${secondHolder.Image}`}/>
+    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${secondHolder.Image}`} alt={secondHolder.Title}/>
     <Card.ImgOverlay>
     <Card.Title style={{fontSize:"2rem"}}>{secondHolder.Title}</Card.Title>
       
@@ -59,7 +59,7 @@ export default function LatestEntries() {
       <Link to={`/konu/${thirdHolder.routepath}`}>
   
       <Card className="bg-dark text-white border-0 mb-2 hoverable">
-    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${thirdHolder.Image}`} alt="Card image"   />
+    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${thirdHolder.Image}`} alt={thirdHolder.Title}   />
     <Card.ImgOverlay >
     <Card.Title style={{fontSize:"2rem"}}><span>{thirdHolder.Title}</span></Card.Title>
   
@@ -72,7 +72,7 @@ export default function LatestEntries() {
       <Link to={`/konu/${fourthHolder.routepath}`}>
 
       <Card className="bg-dark text-white border-0 mb-2 hoverable">
-    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${fourthHolder.Image}`}alt="Card image" />
+    <Card.Img src={`${process.env.REACT_APP_ENDPOINT}/images/${fourthHolder.Image}`} alt={fourthHolder.Title} />
     <Card.ImgOverlay>
     <Card.Title style={{fontSize:"2rem"}}><span>{fourthHolder.Title}</span></Card.Title>
       
